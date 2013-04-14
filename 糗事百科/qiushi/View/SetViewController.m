@@ -16,8 +16,8 @@
 {
     UIBarButtonItem *leftMenuBtn;
     
-    NSMutableArray *_loadItems;//加载图片items
-    int _typeLoad;
+    NSMutableArray *imgLoadItems;//加载图片items
+    int imgLoadType;
 }
 @property (nonatomic, retain) NSMutableArray *loadItems;
 @property (nonatomic, assign) int typeLoad;
@@ -25,20 +25,19 @@
 
 @implementation SetViewController
 
-@synthesize items = _items;
-@synthesize subItems = _subItems;
-@synthesize mTable = _mTable;
-@synthesize adSwitch = _adSwitch;
-@synthesize loadItems = _loadItems;
-@synthesize typeLoad = _typeLoad;
+@synthesize items = itemArrays;
+@synthesize subItems = subItemArrays;
+@synthesize mTable = mTableView;
+@synthesize adSwitch = adSwitch;
+@synthesize loadItems = imgLoadItems;
+@synthesize typeLoad = imgLoadType;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        self.title = @"设置";
+        self.title = @"系统设置";
     }
     return self;
 }
@@ -46,58 +45,58 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.hidesBackButton = YES;
     
     
-    
+    //设置顶部左按钮
     UIImage *image = [UIImage imageNamed:@"nav_menu_icon.png"];
     UIImage *imagef = [UIImage imageNamed:@"nav_menu_icon_f.png"];
     CGRect backframe= CGRectMake(0, 0, image.size.width, image.size.height);
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btn setFrame:backframe];
-    [btn setBackgroundImage:image forState:UIControlStateNormal];
-    [btn setBackgroundImage:imagef forState:UIControlStateHighlighted];
-    [btn addTarget:self action:@selector(showLeft:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *topleftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [topleftButton setFrame:backframe];
+    [topleftButton setBackgroundImage:image forState:UIControlStateNormal];
+    [topleftButton setBackgroundImage:imagef forState:UIControlStateHighlighted];
+    [topleftButton addTarget:self action:@selector(showLeft:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:topleftButton];
     
     self.navigationItem.leftBarButtonItem = someBarButtonItem;
     
     
-
     
     
-    _loadItems = [[NSMutableArray alloc]initWithObjects:@"全部自动加载",@"仅Wifi自动加载",@"不自动加载", nil];
+    
+    imgLoadItems = [[NSMutableArray alloc]initWithObjects:@"全部自动加载",@"仅Wifi自动加载",@"不自动加载", nil];
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     int loadType = [[ud objectForKey:@"loadImage"] intValue];
-    _typeLoad = loadType;
+    imgLoadType = loadType;
     
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
     
     
-    _mTable = [[UITableView alloc]initWithFrame:CGRectMake(0, 30, 320, 480 - 20 - 44 - 30) style:UITableViewStyleGrouped];
-    _mTable.delegate = self;
-    _mTable.dataSource = self;
-    _mTable.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:_mTable];
+    mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 30, 320, 480 - 20 - 44 - 30) style:UITableViewStyleGrouped];
+    mTableView.delegate = self;
+    mTableView.dataSource = self;
+    mTableView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:mTableView];
     
-    _items = [[NSMutableArray alloc]initWithObjects:@"显示广告",@"去给评个分吧",@"图片加载方式",@"清除缓存", nil];
-    _subItems = [[NSMutableArray alloc]initWithObjects:@"", nil];
-    
-    
-    
-    _adSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
-    [_adSwitch setOn:[[ud objectForKey:@"showAD"] boolValue] animated:NO];
-    [_adSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-    
-
+    itemArrays = [[NSMutableArray alloc]initWithObjects:@"显示广告",@"去给评个分吧",@"图片加载方式",@"清除缓存", nil];
+    subItemArrays = [[NSMutableArray alloc]initWithObjects:@"", nil];
     
     
-
+    
+    adSwitch = [[UISwitch alloc] initWithFrame:CGRectZero];
+    [adSwitch setOn:[[ud objectForKey:@"showAD"] boolValue] animated:NO];
+    [adSwitch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    
+    
+    
+    
     
 }
 
@@ -110,8 +109,6 @@
     self.mTable = nil;
     
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
@@ -153,14 +150,14 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.backgroundColor = [UIColor clearColor];
     cell.contentView.backgroundColor = [UIColor clearColor];
-   
+    
     cell.textLabel.font = [UIFont fontWithName:@"微软雅黑" size:15.0];
     cell.textLabel.text = [self.items objectAtIndex:indexPath.row];
-   
     
+    //个性化设置TableView
     if (indexPath.row == 0) {
         
-        cell.accessoryView = _adSwitch;
+        cell.accessoryView = adSwitch;
         
     }
     else{
@@ -168,7 +165,7 @@
     }
     
     if (indexPath.row == 2) {
-        cell.detailTextLabel.text = [_loadItems objectAtIndex:_typeLoad];
+        cell.detailTextLabel.text = [imgLoadItems objectAtIndex:imgLoadType];
     }
     
     
@@ -187,7 +184,7 @@
     }else if (indexPath.row == 1){
         
         //多次跳转，没有下面的好
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?id=545549453&type=Purple+Software"]];
+        //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?id=545549453&type=Purple+Software"]];
         
         //前去评分
         NSString *str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",MyAppleID];
@@ -207,7 +204,7 @@
         pickerView.showsSelectionIndicator = YES;
         
         [actionSheet addSubview:pickerView];
-
+        
         
     }else if (indexPath.row == 3){
         //清除缓存
@@ -223,33 +220,33 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-	return 1;
+    return 1;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-	return [_loadItems count];
+    return [imgLoadItems count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return  [_loadItems objectAtIndex:row];
-
+    return  [imgLoadItems objectAtIndex:row];
+    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	UIPickerView *pickerView = (UIPickerView *)[actionSheet viewWithTag:101];
+    UIPickerView *pickerView = (UIPickerView *)[actionSheet viewWithTag:101];
     
-    _typeLoad = [pickerView selectedRowInComponent:0];
+    imgLoadType = [pickerView selectedRowInComponent:0];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:[NSNumber numberWithInt:_typeLoad]  forKey:@"loadImage"];
+    [ud setObject:[NSNumber numberWithInt:imgLoadType]  forKey:@"loadImage"];
     
     NSLog(@"%@",[ud objectForKey:@"loadImage"]);
     
-    [_mTable reloadData];
+    [mTableView reloadData];
     
-
+    
 }
 
 

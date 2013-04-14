@@ -12,11 +12,11 @@
 
 @interface SetViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate>
 {
-    UITableView *_mTable;
+    UITableView *mTableView;
     
-    NSMutableArray *_items;
-    NSMutableArray *_subItems;
-    UISwitch *_adSwitch;
+    NSMutableArray *itemArrays;
+    NSMutableArray *subItemArrays;
+    UISwitch *adSwitch;
     
 
 }

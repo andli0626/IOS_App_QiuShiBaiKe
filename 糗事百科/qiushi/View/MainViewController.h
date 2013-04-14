@@ -10,13 +10,13 @@
 
 #import <AudioToolbox/AudioToolbox.h>
 
-@class ContentViewController;
+@class ContentView;
 #import "DIYMenu.h"
 
 
 @interface MainViewController : UIViewController<UIAlertViewDelegate,DIYMenuDelegate>
 {
-    ContentViewController *m_contentView;  //内容页面
+    ContentView *m_contentView;  //内容页面
 
     int _typeQiuShi;
     int _timeType;
@@ -27,7 +27,7 @@
     SystemSoundID soundID;
 }
 
-@property (nonatomic,retain) ContentViewController *m_contentView;
+@property (nonatomic,retain) ContentView *m_contentView;
 @property (nonatomic,assign) int typeQiuShi;
 
 

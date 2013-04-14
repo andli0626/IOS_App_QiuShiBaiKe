@@ -12,7 +12,7 @@
 #import "SqliteUtil.h"
 
 
-#import "ContentViewController.h"
+#import "ContentView.h"
 #import "SVStatusHUD.h"
 
 #import "DIYMenuOptions.h"
@@ -84,7 +84,7 @@
     
     //初始化 摇一摇刷新
     NSString *path = [[NSBundle mainBundle] pathForResource:@"shake" ofType:@"wav"];
-	AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &soundID);
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &soundID);
     
     
     
@@ -135,16 +135,11 @@
     
     
     //添加内容的TableView
-    self.m_contentView = [[ContentViewController alloc]initWithNibName:@"ContentViewController" bundle:nil];
+    self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentViewController" bundle:nil];
     [m_contentView.view setFrame:CGRectMake(0, 0, kDeviceWidth, self.view.frame.size.height)];
     [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
     [self.view addSubview:m_contentView.view];
-    
-    
-    
-    
-    
-    
+        
 }
 
 - (void)viewDidUnload
@@ -249,7 +244,7 @@
 #pragma mark - 刷新数据
 - (void)refreshDate
 {
-
+    
     if (_typeQiuShi == QiuShiTypeTop) {
         self.navigationItem.titleView = _segmentButton;
     }else
@@ -275,19 +270,19 @@
     }else if ([action isEqualToString:@"日精选"]) {
         
         if (_timeType != QiuShiTimeDay) {
-             _timeType = QiuShiTimeDay;
+            _timeType = QiuShiTimeDay;
         }else{
             return;
         }
-
+        
     }else if ([action isEqualToString:@"周精选"]) {
-       
+        
         if (_timeType != QiuShiTimeWeek) {
-             _timeType = QiuShiTimeWeek;
+            _timeType = QiuShiTimeWeek;
         }else{
             return;
         }
-
+        
     }else if ([action isEqualToString:@"月精选"]) {
         
         if (_timeType != QiuShiTimeMonth) {
@@ -295,7 +290,7 @@
         }else{
             return;
         }
-
+        
     }
     
     [_segmentButton setTitle:action forState:UIControlStateNormal];

@@ -12,7 +12,7 @@
 
 @class PhotoViewer;
 
-@interface ContentViewController : UIViewController<EGOImageButtonDelegate>
+@interface ContentView : UIViewController<EGOImageButtonDelegate>
 {
     //http 请求
     ASIHTTPRequest *_asiRequest;

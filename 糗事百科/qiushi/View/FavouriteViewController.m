@@ -9,7 +9,7 @@
 #import "FavouriteViewController.h"
 
 #import "PullingRefreshTableView.h"
-#import "CommentsViewController.h"
+#import "CommentsView.h"
 
 #import "CJSONDeserializer.h"
 #import "QiuShi.h"
@@ -415,7 +415,7 @@ UITableViewDelegate
     
     
     
-    CommentsViewController *comments=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
+    CommentsView *comments=[[CommentsView alloc]initWithNibName:@"CommentsViewController" bundle:nil];
     comments.qs = [self.list objectAtIndex:indexPath.row];
     
     

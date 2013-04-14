@@ -8,7 +8,7 @@
 
 #import "ContentCell.h"
 
-#import "CommentsViewController.h"
+#import "CommentsView.h"
 #import "PhotoViewer.h"
 #import "MyNavigationController.h"
 

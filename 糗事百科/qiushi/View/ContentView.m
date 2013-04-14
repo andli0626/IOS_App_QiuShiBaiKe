@@ -6,9 +6,9 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "ContentViewController.h"
+#import "ContentView.h"
 #import "PullingRefreshTableView.h"
-#import "CommentsViewController.h"
+#import "CommentsView.h"
 #import "CJSONDeserializer.h"
 #import "QiuShi.h"
 #import "GADBannerView.h"
@@ -27,7 +27,7 @@
 
 
 
-@interface ContentViewController () <
+@interface ContentView () <
 PullingRefreshTableViewDelegate,
 ASIHTTPRequestDelegate,
 UITableViewDataSource,
@@ -47,7 +47,7 @@ UITableViewDelegate
 @property (nonatomic, retain) ATMHud *hud;
 @end
 
-@implementation ContentViewController
+@implementation ContentView
 @synthesize tableView = _tableView;
 @synthesize list = _list;
 @synthesize refreshing = _refreshing;
@@ -76,7 +76,7 @@ UITableViewDelegate
     }
     
     
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor clearColor]];
     _list = [[NSMutableArray alloc] init ];
     _imageUrlArray = [[NSMutableArray alloc]init];
@@ -104,12 +104,12 @@ UITableViewDelegate
     _tableView.delegate = self;
     [self.view addSubview:self.tableView];
     
-
+    
     
     //提示网络连接失败的
     hud = [[ATMHud alloc] initWithDelegate:self];
     [hud setBlockTouches:NO];
-	[self.view addSubview:hud.view];
+    [self.view addSubview:hud.view];
     
     
     _cacheArray = [SqliteUtil queryDb];
@@ -242,9 +242,9 @@ UITableViewDelegate
     NSLog(@"error:%@",error);
     
     
-//    [hud setCaption:@"网络连接失败"];
-//    [hud show];
-//    [hud hideAfter:2.0];
+    //    [hud setCaption:@"网络连接失败"];
+    //    [hud show];
+    //    [hud hideAfter:2.0];
     
     
     [[iToast makeText:@"网络连接失败"] show];
@@ -282,7 +282,7 @@ UITableViewDelegate
     
     
     if ([dictionary objectForKey:@"items"]) {
-		NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"items"]];
+        NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"items"]];
         
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -297,7 +297,7 @@ UITableViewDelegate
             
             
             //            //ttttttttttt
-//            qs.content = @"中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试111";
+            //            qs.content = @"中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试中文测试111";
             //            qs.content = @"test...";
             //            qs.imageURL = @"http://img.qiushibaike.com/system/pictures/6317243/small/app6317243.jpg";
             //            qs.imageMidURL = @"http://img.qiushibaike.com/system/pictures/6317243/medium/app6317243.jpg";
@@ -325,7 +325,7 @@ UITableViewDelegate
         [self removeRepeatArray];
         //保存到数据库
         [NSThread detachNewThreadSelector:@selector(init_backup:) toTarget:self withObject:nil];
-
+        
         
         //预先加载 图片
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
@@ -339,7 +339,7 @@ UITableViewDelegate
         }else if (loadType == 2){//不加载
             
         }
-
+        
     }
     
     if (self.page >= 20) {
@@ -457,7 +457,7 @@ UITableViewDelegate
     }else{
         return nil;
     }
-   	
+    
 }
 
 
@@ -509,7 +509,7 @@ UITableViewDelegate
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     
-    CommentsViewController *comments=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
+    CommentsView *comments=[[CommentsView alloc]initWithNibName:@"CommentsViewController" bundle:nil];
     comments.qs = [self.list objectAtIndex:indexPath.row];
     
     
@@ -625,7 +625,7 @@ UITableViewDelegate
         
     }
     
-
+    
     NSLog(@"获取缓存完成");
 }
 
