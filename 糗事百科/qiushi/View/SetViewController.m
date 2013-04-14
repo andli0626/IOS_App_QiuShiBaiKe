@@ -178,9 +178,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == 0) {
-        
-        
-        
+        //nothing
     }else if (indexPath.row == 1){
         
         //多次跳转，没有下面的好
@@ -249,7 +247,7 @@
     
 }
 
-
+//是否显示广告设置
 - (void) switchChanged:(id)sender
 {
     UISwitch* switchControl = sender;
