@@ -62,23 +62,6 @@
         NSLog(@"error in trackPageview");
     }
     
-    
-    //    //暂停2s
-    ////    [NSThread sleepForTimeInterval:1.0];
-    
-    
-    //    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    //    // Override point for customization after application launch.
-    //    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    //        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    //    } else {
-    //        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
-    //    }
-    //    self.window.rootViewController = self.viewController;
-    //    [self.window makeKeyAndVisible];
-    //    return YES;
-    
-    
     //想摇就写在这～～～
     application.applicationSupportsShakeToEdit=YES;
     
@@ -89,9 +72,7 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
-    
+
     _lightView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     [_lightView setUserInteractionEnabled:NO];
     [_lightView setBackgroundColor:[UIColor blackColor]];

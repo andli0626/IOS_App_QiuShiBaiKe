@@ -788,7 +788,7 @@
 				13C8435815E47EEC000B8A44 /* AppDelegate.h */,
 				13C8435915E47EEC000B8A44 /* AppDelegate.m */,
 				13C845E315E48AFE000B8A44 /* Frame */,
-				13C8446315E489F5000B8A44 /* View */,
+				F26F635F171B8C6E008C9ECA /* New Group */,
 				13C843E715E489E8000B8A44 /* Resource */,
 				13C8434F15E47EEC000B8A44 /* qiushi */,
 				13C8435015E47EEC000B8A44 /* Supporting Files */,
@@ -1577,6 +1577,14 @@
 				13F4C73615F1E9E900DD8451 /* iVersion.m */,
 			);
 			path = iVersion;
+			sourceTree = "<group>";
+		};
+		F26F635F171B8C6E008C9ECA /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				13C8446315E489F5000B8A44 /* View */,
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		F27C3AB0171AF65000411CF2 /* SettingView */ = {
