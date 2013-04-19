@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "MainViewController.h"
+#import "MainView.h"
 #import "DDMenuController.h"
 
 #import "LeftController.h"
@@ -80,7 +80,7 @@
     //    [self.window addSubview:_lightView];
     
     
-    _mainController = [[MainViewController alloc] init];
+    _mainController = [[MainView alloc] init];
     
     _navController = [[MyNavigationController alloc] initWithRootViewController:_mainController];
     

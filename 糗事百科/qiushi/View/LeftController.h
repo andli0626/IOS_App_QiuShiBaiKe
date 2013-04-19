@@ -19,7 +19,7 @@
     
     DDMenuController *_menuController;
     MyNavigationController *_navController;
-    MainViewController *_mainViewController;
+    MainView *_mainViewController;
     
     UIButton *_setBtn;
     
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, retain) MyNavigationController *navController;
-@property (nonatomic, retain) MainViewController *mainViewController;
+@property (nonatomic, retain) MainView *mainViewController;
 @property (nonatomic, retain) UIButton *setBtn;
 @property (nonatomic, assign) BOOL isNormalTable;
 @end

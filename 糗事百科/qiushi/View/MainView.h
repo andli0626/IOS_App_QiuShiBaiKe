@@ -14,7 +14,7 @@
 #import "DIYMenu.h"
 
 
-@interface MainViewController : UIViewController<UIAlertViewDelegate,DIYMenuDelegate>
+@interface MainView : UIViewController<UIAlertViewDelegate,DIYMenuDelegate>
 {
     ContentView *m_contentView;  //内容页面
 
