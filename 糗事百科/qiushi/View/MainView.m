@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 XYXD. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "MainView.h"
 
 
 #import "SqliteUtil.h"
@@ -26,7 +26,7 @@
 #define kTime 10
 
 
-@interface MainViewController ()
+@interface MainView ()
 {
     UIButton *_segmentButton;//
     UIImageView *_arrowImage;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation MainViewController
+@implementation MainView
 @synthesize m_contentView;
 @synthesize typeQiuShi = _typeQiuShi;
 @synthesize timeSegment = _timeSegment;

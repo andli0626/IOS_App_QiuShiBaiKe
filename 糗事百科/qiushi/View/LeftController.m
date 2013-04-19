@@ -7,7 +7,7 @@
 //
 
 #import "LeftController.h"
-#import "MainViewController.h"
+#import "MainView.h"
 #import "DDMenuController.h"
 #import "AppDelegate.h"
 #import "AboutViewController.h"
