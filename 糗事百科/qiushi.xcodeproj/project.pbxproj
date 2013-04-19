@@ -130,8 +130,8 @@
 		13C8448615E489F5000B8A44 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447115E489F5000B8A44 /* ContentView.m */; };
 		13C8448715E489F5000B8A44 /* ContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C8447215E489F5000B8A44 /* ContentView.xib */; };
 		13C8448815E489F5000B8A44 /* LeftController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447415E489F5000B8A44 /* LeftController.m */; };
-		13C8448915E489F5000B8A44 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447615E489F5000B8A44 /* MainView.m */; };
-		13C8448A15E489F5000B8A44 /* MainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C8447715E489F5000B8A44 /* MainView.xib */; };
+		13C8448915E489F5000B8A44 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447615E489F5000B8A44 /* MainViewController.m */; };
+		13C8448A15E489F5000B8A44 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13C8447715E489F5000B8A44 /* MainViewController.xib */; };
 		13C8448B15E489F5000B8A44 /* QiuShi.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447915E489F5000B8A44 /* QiuShi.m */; };
 		13C8448C15E489F5000B8A44 /* RightController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447B15E489F5000B8A44 /* RightController.m */; };
 		13C8448D15E489F5000B8A44 /* SetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C8447D15E489F5000B8A44 /* SetViewController.m */; };
@@ -426,9 +426,9 @@
 		13C8447215E489F5000B8A44 /* ContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentView.xib; sourceTree = "<group>"; };
 		13C8447315E489F5000B8A44 /* LeftController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftController.h; sourceTree = "<group>"; };
 		13C8447415E489F5000B8A44 /* LeftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftController.m; sourceTree = "<group>"; };
-		13C8447515E489F5000B8A44 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
-		13C8447615E489F5000B8A44 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
-		13C8447715E489F5000B8A44 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
+		13C8447515E489F5000B8A44 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		13C8447615E489F5000B8A44 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		13C8447715E489F5000B8A44 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		13C8447815E489F5000B8A44 /* QiuShi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShi.h; sourceTree = "<group>"; };
 		13C8447915E489F5000B8A44 /* QiuShi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShi.m; sourceTree = "<group>"; };
 		13C8447A15E489F5000B8A44 /* RightController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightController.h; sourceTree = "<group>"; };
@@ -956,10 +956,8 @@
 		13C8446315E489F5000B8A44 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F2DBA4AF1721861300740C66 /* ContentView */,
-				F2DBA4AE172185AF00740C66 /* MainView */,
 				F27C3AB0171AF65000411CF2 /* SettingView */,
-				13D4BBD215F9BC9000AD8B8B /* PhotoView */,
+				13D4BBD215F9BC9000AD8B8B /* PhotoViewer */,
 				1313DAA015EF3281002ACBB2 /* CustomView */,
 				13C8446415E489F5000B8A44 /* AboutViewController.h */,
 				13C8446515E489F5000B8A44 /* AboutViewController.m */,
@@ -971,11 +969,19 @@
 				13C8446B15E489F5000B8A44 /* CommentsView.h */,
 				13C8446C15E489F5000B8A44 /* CommentsView.m */,
 				13C8446D15E489F5000B8A44 /* CommentsView.xib */,
+				13C8446E15E489F5000B8A44 /* ContentCell.h */,
+				13C8446F15E489F5000B8A44 /* ContentCell.m */,
+				13C8447015E489F5000B8A44 /* ContentView.h */,
+				13C8447115E489F5000B8A44 /* ContentView.m */,
+				13C8447215E489F5000B8A44 /* ContentView.xib */,
 				13C8447315E489F5000B8A44 /* LeftController.h */,
 				13C8447415E489F5000B8A44 /* LeftController.m */,
 				1320449115FED5D6004C8746 /* LeftCell.h */,
 				1320449215FED5D6004C8746 /* LeftCell.m */,
 				1320449515FED5FC004C8746 /* LeftCell.xib */,
+				13C8447515E489F5000B8A44 /* MainViewController.h */,
+				13C8447615E489F5000B8A44 /* MainViewController.m */,
+				13C8447715E489F5000B8A44 /* MainViewController.xib */,
 				13C8447815E489F5000B8A44 /* QiuShi.h */,
 				13C8447915E489F5000B8A44 /* QiuShi.m */,
 				13C8447A15E489F5000B8A44 /* RightController.h */,
@@ -1517,7 +1523,7 @@
 			path = ATMHud;
 			sourceTree = "<group>";
 		};
-		13D4BBD215F9BC9000AD8B8B /* PhotoView */ = {
+		13D4BBD215F9BC9000AD8B8B /* PhotoViewer */ = {
 			isa = PBXGroup;
 			children = (
 				13D4BBEB15FA19E200AD8B8B /* PhotoViewer.h */,
@@ -1531,7 +1537,6 @@
 				13D4BBDB15F9BC9000AD8B8B /* zoom_in.png */,
 				13D4BBDC15F9BC9000AD8B8B /* zoom_out.png */,
 			);
-			name = PhotoView;
 			path = PhotoViewer;
 			sourceTree = "<group>";
 		};
@@ -1590,28 +1595,6 @@
 				13C8447E15E489F5000B8A44 /* SetViewController.xib */,
 			);
 			name = SettingView;
-			sourceTree = "<group>";
-		};
-		F2DBA4AE172185AF00740C66 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				13C8447515E489F5000B8A44 /* MainView.h */,
-				13C8447615E489F5000B8A44 /* MainView.m */,
-				13C8447715E489F5000B8A44 /* MainView.xib */,
-			);
-			name = MainView;
-			sourceTree = "<group>";
-		};
-		F2DBA4AF1721861300740C66 /* ContentView */ = {
-			isa = PBXGroup;
-			children = (
-				13C8446E15E489F5000B8A44 /* ContentCell.h */,
-				13C8446F15E489F5000B8A44 /* ContentCell.m */,
-				13C8447015E489F5000B8A44 /* ContentView.h */,
-				13C8447115E489F5000B8A44 /* ContentView.m */,
-				13C8447215E489F5000B8A44 /* ContentView.xib */,
-			);
-			name = ContentView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1732,7 +1715,7 @@
 				13C8448015E489F5000B8A44 /* AboutViewController.xib in Resources */,
 				13C8448415E489F5000B8A44 /* CommentsView.xib in Resources */,
 				13C8448715E489F5000B8A44 /* ContentView.xib in Resources */,
-				13C8448A15E489F5000B8A44 /* MainView.xib in Resources */,
+				13C8448A15E489F5000B8A44 /* MainViewController.xib in Resources */,
 				13C8448E15E489F5000B8A44 /* SetViewController.xib in Resources */,
 				13C846F115E48AFE000B8A44 /* blueArrow.png in Resources */,
 				13C846F215E48AFE000B8A44 /* blueArrow@2x.png in Resources */,
@@ -1820,7 +1803,7 @@
 				13C8448515E489F5000B8A44 /* ContentCell.m in Sources */,
 				13C8448615E489F5000B8A44 /* ContentView.m in Sources */,
 				13C8448815E489F5000B8A44 /* LeftController.m in Sources */,
-				13C8448915E489F5000B8A44 /* MainView.m in Sources */,
+				13C8448915E489F5000B8A44 /* MainViewController.m in Sources */,
 				13C8448B15E489F5000B8A44 /* QiuShi.m in Sources */,
 				13C8448C15E489F5000B8A44 /* RightController.m in Sources */,
 				13C8448D15E489F5000B8A44 /* SetViewController.m in Sources */,
@@ -1962,12 +1945,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Li Yachun (27VA8HLSF5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Yachun (27VA8HLSF5)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1982,9 +1964,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "";
+				ONLY_ACTIVE_ARCH = NO;
+				PROVISIONING_PROFILE = "3AE63D55-259A-4361-B980-0197F344155E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AE63D55-259A-4361-B980-0197F344155E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "";
 			};
 			name = Debug;
 		};
@@ -1992,12 +1977,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Li Yachun (27VA8HLSF5)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Li Yachun (27VA8HLSF5)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -2005,11 +1989,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3AE63D55-259A-4361-B980-0197F344155E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AE63D55-259A-4361-B980-0197F344155E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "";
 			};
 			name = Release;
 		};
@@ -2027,11 +2014,13 @@
 					"\"$(SRCROOT)/qiushi/Frame/admob\"",
 					"\"$(SRCROOT)/qiushi/Frame/GoogleAnalytics\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3AE63D55-259A-4361-B980-0197F344155E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AE63D55-259A-4361-B980-0197F344155E";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
+				"VALID_ARCHS[sdk=*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2050,11 +2039,13 @@
 					"\"$(SRCROOT)/qiushi/Frame/admob\"",
 					"\"$(SRCROOT)/qiushi/Frame/GoogleAnalytics\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3AE63D55-259A-4361-B980-0197F344155E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3AE63D55-259A-4361-B980-0197F344155E";
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				TARGETED_DEVICE_FAMILY = 1;
+				"VALID_ARCHS[sdk=*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

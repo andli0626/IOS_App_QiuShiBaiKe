@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GADBannerView.h"
 
-@class MainView;
+@class MainViewController;
 @class DDMenuController;
 @class LeftController;
 @class MyNavigationController;
@@ -20,7 +20,7 @@
 {
     GADBannerView *bannerView_;//实例变量 bannerView_是一个view
     
-    MainView *_mainController;
+    MainViewController *_mainController;
     MyNavigationController *_navController;
     LeftController *_leftController;
     
@@ -32,7 +32,7 @@
 //@property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) DDMenuController *menuController;
 
-@property (strong, nonatomic) MainView *mainController;
+@property (strong, nonatomic) MainViewController *mainController;
 @property (strong, nonatomic) MyNavigationController *navController;
 @property (strong, nonatomic) LeftController *leftController;
 @property (strong, nonatomic) UIView *lightView;

@@ -7,7 +7,7 @@
 //
 
 #import "RightController.h"
-#import "MainView.h"
+#import "MainViewController.h"
 #import "AppDelegate.h"
 
 @implementation RightController
@@ -94,7 +94,7 @@
     
     // lets just push another feed view 
     UINavigationController *menuController = (UINavigationController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
-    MainView *controller = [[MainView alloc] init];
+    MainViewController *controller = [[MainViewController alloc] init];
     [menuController pushViewController:controller animated:YES];
     
     
