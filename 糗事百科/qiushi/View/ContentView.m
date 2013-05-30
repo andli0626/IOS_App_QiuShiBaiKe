@@ -68,7 +68,7 @@ UITableViewDelegate
     
     NSError *error;
     if (![[GANTracker sharedTracker] trackEvent:@"Application iOS"
-                                         action:@"ContentViewController.h"
+                                         action:@"ContentView.h"
                                           label:@"Example iOS"
                                           value:99
                                       withError:&error]) {
@@ -390,13 +390,13 @@ UITableViewDelegate
     
     QiuShi *qs = [self.list objectAtIndex:[indexPath row]];
     //设置内容
-    cell.txtContent.text = qs.content;
+    cell.txtContentLabel.text = qs.content;
     
     
-    [cell.txtContent setNumberOfLines: 12];
+    [cell.txtContentLabel setNumberOfLines: 12];
     
     //设置图片
-    if (qs.imageURL!=nil && qs.imageURL!= @"") {
+    if (qs.imageURL.length>0) {
         cell.imgUrl = qs.imageURL;
         cell.imgMidUrl = qs.imageMidURL;
         // cell.imgPhoto.hidden = NO;
@@ -407,7 +407,7 @@ UITableViewDelegate
         // cell.imgPhoto.hidden = YES;
     }
     //设置用户名
-    if (qs.anchor!=nil && qs.anchor!= @"")
+    if (qs.anchor.length>0)
     {
         cell.txtAnchor.text = qs.anchor;
     }else
@@ -415,7 +415,7 @@ UITableViewDelegate
         cell.txtAnchor.text = @"匿名";
     }
     //设置标签
-    if (qs.tag!=nil && qs.tag!= @"")
+    if (qs.tag.length>0)
     {
         cell.txtTag.text = qs.tag;
     }else
@@ -440,6 +440,7 @@ UITableViewDelegate
     return cell;
 }
 
+//Cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self getTheHeight:indexPath.row];
@@ -539,7 +540,9 @@ UITableViewDelegate
     NSString *content = qs.content;
     
     // 计算出长宽
-    CGSize size = [content sizeWithFont:font constrainedToSize:CGSizeMake(contentWidth, 220) lineBreakMode:UILineBreakModeTailTruncation];
+    CGSize size = [content sizeWithFont:font
+                      constrainedToSize:CGSizeMake(contentWidth, 220)
+                          lineBreakMode:UILineBreakModeTailTruncation];
     CGFloat height;
     if (qs.imageURL==nil || [qs.imageURL isEqualToString:@""]) {
         height = size.height+140;
@@ -548,6 +551,7 @@ UITableViewDelegate
         height = size.height+220;
     }
     // 返回需要的高度
+    NSLog(@"Cell高度=%f",height);
     return height;
 }
 

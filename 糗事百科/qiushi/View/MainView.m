@@ -135,7 +135,7 @@
     
     
     //添加内容的TableView
-    self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentViewController" bundle:nil];
+    self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentView" bundle:nil];
     [m_contentView.view setFrame:CGRectMake(0, 0, kDeviceWidth, self.view.frame.size.height)];
     [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
     [self.view addSubview:m_contentView.view];

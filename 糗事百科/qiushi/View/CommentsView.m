@@ -310,11 +310,11 @@ UITableViewDelegate
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.backgroundColor = [UIColor clearColor];
             cell.contentView.backgroundColor = [UIColor clearColor];
-            cell.txtContent.NumberOfLines = qs.content.length * 14 * 0.05 + 1;
+            cell.txtContentLabel.NumberOfLines = qs.content.length * 14 * 0.05 + 1;
         }
         
         //设置内容
-        cell.txtContent.text = qs.content;
+        cell.txtContentLabel.text = qs.content;
         //发布时间
         cell.txtTime.text = qs.fbTime;
         //设置图片

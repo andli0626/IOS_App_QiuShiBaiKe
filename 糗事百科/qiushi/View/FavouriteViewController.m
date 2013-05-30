@@ -297,10 +297,10 @@ UITableViewDelegate
     
     QiuShi *qs = [self.list objectAtIndex:[indexPath row]];
     //设置内容
-    cell.txtContent.text = qs.content;
+    cell.txtContentLabel.text = qs.content;
     
     
-    [cell.txtContent setNumberOfLines: 12];
+    [cell.txtContentLabel setNumberOfLines: 12];
     
     //设置图片
     if (qs.imageURL!=nil && qs.imageURL!= @"") {

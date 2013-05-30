@@ -24,7 +24,7 @@
 @end;
 
 @implementation ContentCell
-@synthesize txtContent,txtAnchor,headPhoto,footView,centerimageView,TagPhoto;
+@synthesize txtContentLabel,txtAnchor,headPhotoImageView,footView,centerimageView,TagPhoto;
 @synthesize commentsbtn,badbtn,goodbtn,imgUrl,txtTag,txtTime;
 @synthesize imgPhoto,imgMidUrl;
 @synthesize photoview = _photoview;
@@ -42,12 +42,12 @@
         [self addSubview:centerimageView];
  
         
-        txtContent = [[UILabel alloc]init];
-        [txtContent setBackgroundColor:[UIColor clearColor]];
-        [txtContent setFrame:CGRectMake(20, 10, 280, 220)];
-        [txtContent setFont:[UIFont fontWithName:@"微软雅黑" size:14]];
-        [txtContent setLineBreakMode:UILineBreakModeTailTruncation];
-        [self addSubview:txtContent];
+        txtContentLabel = [[UILabel alloc]init];
+        [txtContentLabel setBackgroundColor:[UIColor clearColor]];
+        [txtContentLabel setFrame:CGRectMake(20, 10, 280, 220)];
+        [txtContentLabel setFont:[UIFont fontWithName:@"微软雅黑" size:14]];
+        [txtContentLabel setLineBreakMode:UILineBreakModeTailTruncation];
+        [self addSubview:txtContentLabel];
     
         imgPhoto = [[EGOImageButton alloc]initWithPlaceholderImage:[UIImage imageNamed:@"thumb_pic.png"] delegate:self];
         [imgPhoto setFrame:CGRectMake(0, 0, 0, 0)];
@@ -55,9 +55,9 @@
         [imgPhoto addTarget:self action:@selector(ImageBtnClicked:) forControlEvents:UIControlEventTouchUpInside];        
         [self addSubview:imgPhoto];
         
-        headPhoto = [[UIImageView alloc]initWithFrame:CGRectMake(15, 5, 24, 24)];
-        [headPhoto setImage:[UIImage imageNamed:@"thumb_avatar.png"]];
-        [self addSubview:headPhoto];
+        headPhotoImageView = [[UIImageView alloc]initWithFrame:CGRectMake(15, 5, 24, 24)];
+        [headPhotoImageView setImage:[UIImage imageNamed:@"thumb_avatar.png"]];
+        [self addSubview:headPhotoImageView];
     
         txtAnchor = [[UILabel alloc]initWithFrame:CGRectMake(45,5, 240-45, 30)];
         [txtAnchor setText:@"匿名"];
@@ -89,12 +89,12 @@
         
         UIImage *footimage = [UIImage imageNamed:@"block_foot_background.png"];
         footView = [[UIImageView alloc]initWithImage:footimage];
-        [footView setFrame:CGRectMake(0, txtContent.frame.size.height, 320, 15)];
+        [footView setFrame:CGRectMake(0, txtContentLabel.frame.size.height, 320, 15)];
         [self addSubview:footView];
        
         //添加Button，顶，踩，评论  
         goodbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [goodbtn setFrame:CGRectMake(10,txtContent.frame.size.height-30,70,32)];
+        [goodbtn setFrame:CGRectMake(10,txtContentLabel.frame.size.height-30,70,32)];
         [goodbtn setBackgroundImage:[UIImage imageNamed:@"button_vote.png"] forState:UIControlStateNormal];
         [goodbtn setBackgroundImage:[UIImage imageNamed:@"button_vote_active.png"] forState:UIControlStateHighlighted];
         [goodbtn setImage:[UIImage imageNamed:@"icon_for_good.png"] forState:UIControlStateNormal];
@@ -108,7 +108,7 @@
         [self addSubview:goodbtn];
         
         badbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [badbtn setFrame:CGRectMake(90,txtContent.frame.size.height-30,70,32)];
+        [badbtn setFrame:CGRectMake(90,txtContentLabel.frame.size.height-30,70,32)];
         [badbtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
         [badbtn setImageEdgeInsets:UIEdgeInsetsMake(0, .5, 0, 0)];
         [badbtn setBackgroundImage:[UIImage imageNamed:@"button_vote.png"] forState:UIControlStateNormal];
@@ -121,7 +121,7 @@
         [self addSubview:badbtn];
         
         commentsbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [commentsbtn setFrame:CGRectMake(170,txtContent.frame.size.height-30,70,32)];
+        [commentsbtn setFrame:CGRectMake(170,txtContentLabel.frame.size.height-30,70,32)];
         [commentsbtn setBackgroundImage:[UIImage imageNamed:@"button_vote.png"] forState:UIControlStateNormal];
         [commentsbtn setBackgroundImage:[UIImage imageNamed:@"button_vote_active.png"] forState:UIControlStateHighlighted];
         [commentsbtn setImage:[UIImage imageNamed:@"icon_for_comment.png"] forState:UIControlStateNormal];
@@ -135,7 +135,7 @@
         [self addSubview:commentsbtn];
      
         _saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_saveBtn setFrame:CGRectMake(260,txtContent.frame.size.height-30,25,25)];
+        [_saveBtn setFrame:CGRectMake(260,txtContentLabel.frame.size.height-30,25,25)];
         [_saveBtn setBackgroundImage:[UIImage imageNamed:@"button_vote.png"] forState:UIControlStateNormal];
         [_saveBtn setBackgroundImage:[UIImage imageNamed:@"button_vote_active.png"] forState:UIControlStateHighlighted];
         [_saveBtn setImage:[UIImage imageNamed:@"button_save.png"] forState:UIControlStateNormal];
@@ -146,35 +146,43 @@
 }
 
 
+//自适应高度
 -(void) resizeTheHeight:(int)type
-{   
-    CGFloat contentWidth = 280;  
- 
-    UIFont *font = [UIFont fontWithName:@"微软雅黑" size:14];
+{
     
-    CGSize size = CGSizeMake(0, 0);
+    //内容高度自适应
+    UIFont *font = [UIFont fontWithName:@"微软雅黑" size:14];
+    //宽度280
+    CGFloat contentWidth = 280;
+    //计算高度
+    CGSize contentSize = CGSizeMake(0, 0);
     if (type == kTypeMain)
     {
-        size = [txtContent.text sizeWithFont:font constrainedToSize:CGSizeMake(contentWidth, 220) lineBreakMode:UILineBreakModeTailTruncation];
+        contentSize = [txtContentLabel.text sizeWithFont:font
+                           constrainedToSize:CGSizeMake(contentWidth, 220)
+                               lineBreakMode:UILineBreakModeTailTruncation];
+        NSLog(@"kTypeMain高度=%f",contentSize.height);
     }else if (type == kTypeContent)
     {
-        size = [txtContent.text sizeWithFont:font constrainedToSize:CGSizeMake(contentWidth, (txtContent.text.length * 14 * 0.05 + 1 ) * 14) lineBreakMode:UILineBreakModeTailTruncation];
+        contentSize = [txtContentLabel.text sizeWithFont:font
+                           constrainedToSize:CGSizeMake(contentWidth, (txtContentLabel.text.length * 14 * 0.05 + 1 ) * 14) lineBreakMode:UILineBreakModeTailTruncation];
+        NSLog(@"kTypeContent高度=%f",contentSize.height);
     }
     
     
-    [txtContent setFrame:CGRectMake(20, 10, contentWidth, size.height+60)];
+    [txtContentLabel setFrame:CGRectMake(20, 10, contentWidth, contentSize.height+60)];
     
     if (imgUrl!=nil&&![imgUrl isEqualToString:@""]) {
-       [imgPhoto setFrame:CGRectMake(30, size.height+70, 72, 72)];
-       [centerimageView setFrame:CGRectMake(0, 0, 320, size.height+200)];
+       [imgPhoto setFrame:CGRectMake(30, contentSize.height+70, 72, 72)];
+       [centerimageView setFrame:CGRectMake(0, 0, 320, contentSize.height+200)];
        [imgPhoto setImageURL:[NSURL URLWithString:imgUrl]];
        [self imageButtonLoadedImage:imgPhoto];
     }
     else
     {
         [imgPhoto cancelImageLoad];
-        [imgPhoto setFrame:CGRectMake(120, size.height, 0, 0)];
-        [centerimageView setFrame:CGRectMake(0, 0, 320, size.height+120)];
+        [imgPhoto setFrame:CGRectMake(120, contentSize.height, 0, 0)];
+        [centerimageView setFrame:CGRectMake(0, 0, 320, contentSize.height+120)];
     }
     
     [footView setFrame:CGRectMake(0, centerimageView.frame.size.height, 320, 15)];
