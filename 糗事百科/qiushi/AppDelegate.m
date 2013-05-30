@@ -72,7 +72,7 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
     _lightView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     [_lightView setUserInteractionEnabled:NO];
     [_lightView setBackgroundColor:[UIColor blackColor]];
