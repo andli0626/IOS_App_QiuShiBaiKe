@@ -14,7 +14,7 @@
 #import "GADBannerView.h"
 #import "SqliteUtil.h"
 #import "SVStatusHUD.h"
-#import "MyNavigationController.h"
+#import "MyNavigationView.h"
 #import "AppDelegate.h"
 
 #import "ATMHud.h"

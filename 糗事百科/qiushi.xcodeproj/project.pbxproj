@@ -30,7 +30,7 @@
 		132044A615FF1362004C8746 /* comm_btn_top_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 132044A315FF1362004C8746 /* comm_btn_top_s@2x.png */; };
 		136A2E6215F5ED8700E402D8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 136A2E6115F5ED8700E402D8 /* MBProgressHUD.m */; };
 		136A2E6615F5EE7D00E402D8 /* MyProgressHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 136A2E6515F5EE7D00E402D8 /* MyProgressHud.m */; };
-		136A2E6915F601BB00E402D8 /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136A2E6815F601BB00E402D8 /* MyNavigationController.m */; };
+		136A2E6915F601BB00E402D8 /* MyNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 136A2E6815F601BB00E402D8 /* MyNavigationView.m */; };
 		136A2E6C15F6025500E402D8 /* navi_back_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 136A2E6A15F6025500E402D8 /* navi_back_btn@2x.png */; };
 		136A2E6D15F6025500E402D8 /* navi_back_f_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 136A2E6B15F6025500E402D8 /* navi_back_f_btn@2x.png */; };
 		13BF0A5116073619007F7B1A /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13BF0A5016073619007F7B1A /* libGoogleAnalytics.a */; };
@@ -305,8 +305,8 @@
 		136A2E6115F5ED8700E402D8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		136A2E6415F5EE7D00E402D8 /* MyProgressHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProgressHud.h; sourceTree = "<group>"; };
 		136A2E6515F5EE7D00E402D8 /* MyProgressHud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProgressHud.m; sourceTree = "<group>"; };
-		136A2E6715F601BB00E402D8 /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
-		136A2E6815F601BB00E402D8 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		136A2E6715F601BB00E402D8 /* MyNavigationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationView.h; sourceTree = "<group>"; };
+		136A2E6815F601BB00E402D8 /* MyNavigationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationView.m; sourceTree = "<group>"; };
 		136A2E6A15F6025500E402D8 /* navi_back_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back_btn@2x.png"; sourceTree = "<group>"; };
 		136A2E6B15F6025500E402D8 /* navi_back_f_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navi_back_f_btn@2x.png"; sourceTree = "<group>"; };
 		13BF0A4F16073619007F7B1A /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
@@ -736,8 +736,8 @@
 			children = (
 				13D4BBCE15F9A40500AD8B8B /* TestNavigationBar.h */,
 				13D4BBCF15F9A40500AD8B8B /* TestNavigationBar.m */,
-				136A2E6715F601BB00E402D8 /* MyNavigationController.h */,
-				136A2E6815F601BB00E402D8 /* MyNavigationController.m */,
+				136A2E6715F601BB00E402D8 /* MyNavigationView.h */,
+				136A2E6815F601BB00E402D8 /* MyNavigationView.m */,
 				1313DAA115EF3281002ACBB2 /* CustomNavigationBar.h */,
 				1313DAA215EF3281002ACBB2 /* CustomNavigationBar.m */,
 			);
@@ -1933,7 +1933,7 @@
 				13C3E9F715F490C30001E3A1 /* SBJsonWriter.m in Sources */,
 				136A2E6215F5ED8700E402D8 /* MBProgressHUD.m in Sources */,
 				136A2E6615F5EE7D00E402D8 /* MyProgressHud.m in Sources */,
-				136A2E6915F601BB00E402D8 /* MyNavigationController.m in Sources */,
+				136A2E6915F601BB00E402D8 /* MyNavigationView.m in Sources */,
 				C9BDA76915F64D0700645ED0 /* FavouriteView.m in Sources */,
 				13CA882615F876AE00A85F01 /* ATMHud.m in Sources */,
 				13CA882715F876AE00A85F01 /* ATMHudQueueItem.m in Sources */,

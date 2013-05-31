@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "QuadCurveMenu.h"
-@class MyNavigationController;
+@class MyNavigationView;
 
 
 
@@ -18,7 +18,7 @@
     NSMutableArray *_items;
     
     DDMenuController *_menuController;
-    MyNavigationController *_navController;
+    MyNavigationView *_navController;
     MainView *_mainViewController;
     
     UIButton *_setBtn;
@@ -29,7 +29,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, retain) NSMutableArray *items;
-@property (nonatomic, retain) MyNavigationController *navController;
+@property (nonatomic, retain) MyNavigationView *navController;
 @property (nonatomic, retain) MainView *mainViewController;
 @property (nonatomic, retain) UIButton *setBtn;
 @property (nonatomic, assign) BOOL isNormalTable;

@@ -10,7 +10,7 @@
 
 #import "CommentsView.h"
 #import "PhotoViewer.h"
-#import "MyNavigationController.h"
+#import "MyNavigationView.h"
 
 #define FGOOD       101
 #define FBAD        102

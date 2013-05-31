@@ -13,7 +13,7 @@
 #import "AboutView.h"
 #import "SetViewController.h"
 #import "PurchaseInView.h"
-#import "MyNavigationController.h"
+#import "MyNavigationView.h"
 #import "FavouriteView.h"
 
 @interface LeftView ()

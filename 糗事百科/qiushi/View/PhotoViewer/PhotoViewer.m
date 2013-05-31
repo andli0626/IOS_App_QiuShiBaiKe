@@ -9,7 +9,7 @@
 #import "PhotoViewer.h"
 
 #import "TestNavigationBar.h"
-#import "MyNavigationController.h"
+#import "MyNavigationView.h"
 
 
 

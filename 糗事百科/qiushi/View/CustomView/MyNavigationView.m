@@ -6,9 +6,9 @@
 //  Copyright (c) 2012年 Beijing CarSmart Technology Co., LTD. All rights reserved.
 //
 
-#import "MyNavigationController.h"
+#import "MyNavigationView.h"
 
-@implementation MyNavigationController
+@implementation MyNavigationView
 
 
 -(void)popself

@@ -13,17 +13,7 @@
 
 #import "LeftView.h"
 #import "CustomNavigationBar.h"
-#import "MyNavigationController.h"
-
-
-
-
-
-
-//#import "RightController.h"
-
-//#import "ViewController.h"
-
+#import "MyNavigationView.h"
 
 @implementation AppDelegate
 
@@ -82,7 +72,7 @@
     
     _mainController = [[MainView alloc] init];
     
-    _navController = [[MyNavigationController alloc] initWithRootViewController:_mainController];
+    _navController = [[MyNavigationView alloc] initWithRootViewController:_mainController];
     
     _menuController = [[DDMenuController alloc] initWithRootViewController:_navController];
     

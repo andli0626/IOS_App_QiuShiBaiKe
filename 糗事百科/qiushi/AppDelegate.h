@@ -12,7 +12,7 @@
 @class MainView;
 @class DDMenuController;
 @class LeftView;
-@class MyNavigationController;
+@class MyNavigationView;
 
 //@class ViewController;
 
@@ -21,19 +21,16 @@
     GADBannerView *bannerView_;//实例变量 bannerView_是一个view
     
     MainView *_mainController;
-    MyNavigationController *_navController;
+    MyNavigationView *_navController;
     LeftView *_leftController;
     
     UIView *_lightView;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-
-//@property (strong, nonatomic) ViewController *viewController;
 @property (strong, nonatomic) DDMenuController *menuController;
-
 @property (strong, nonatomic) MainView *mainController;
-@property (strong, nonatomic) MyNavigationController *navController;
+@property (strong, nonatomic) MyNavigationView *navController;
 @property (strong, nonatomic) LeftView *leftController;
 @property (strong, nonatomic) UIView *lightView;
 
