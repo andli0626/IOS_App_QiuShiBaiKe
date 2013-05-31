@@ -18,7 +18,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize mDDMenuView = _menuController;
+@synthesize mDDMenuView = _mDDMenuView;
 @synthesize mainController = mMainView;
 @synthesize navController = _navController;
 @synthesize leftController = mLeftView;
@@ -55,14 +55,16 @@
     //想摇就写在这～～～
     application.applicationSupportsShakeToEdit=YES;
     
-    //默认显示广告
+    //默认不显示广告
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    [ud setObject:[NSNumber numberWithBool:YES]  forKey:@"showAD"];
+    [ud setObject:[NSNumber numberWithBool:NO]  forKey:@"showAD"];
     
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    
+    //????
     _lightView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
     [_lightView setUserInteractionEnabled:NO];
     [_lightView setBackgroundColor:[UIColor blackColor]];
@@ -74,16 +76,17 @@
     
     _navController = [[MyNavigationView alloc] initWithRootViewController:mMainView];
     
-    _menuController = [[DDMenuController alloc] initWithRootViewController:_navController];
+    _mDDMenuView = [[DDMenuController alloc] initWithRootViewController:_navController];
     
     
+    //初始化左页面
     mLeftView = [[LeftView alloc] init];
-    mLeftView.navController = _navController;
+    mLeftView.navController = _navController;//左页面导航为自定义导航
     mLeftView.mainViewController = mMainView;
     
-    _menuController.leftViewController = mLeftView;
+    _mDDMenuView.leftViewController = mLeftView;
         
-    self.window.rootViewController = _menuController;
+    self.window.rootViewController = _mDDMenuView;
     
     self.window.backgroundColor = [UIColor whiteColor];
     
