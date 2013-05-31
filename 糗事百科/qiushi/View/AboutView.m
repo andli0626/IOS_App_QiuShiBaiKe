@@ -127,7 +127,7 @@
 
 - (void)showLeft:(id)seder
 {
-    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mDDMenuView;
     [menuController showLeftController:YES];
     
 

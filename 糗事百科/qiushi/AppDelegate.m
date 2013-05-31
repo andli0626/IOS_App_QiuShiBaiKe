@@ -18,10 +18,10 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize menuController = _menuController;
-@synthesize mainController = _mainController;
+@synthesize mDDMenuView = _menuController;
+@synthesize mainController = mMainView;
 @synthesize navController = _navController;
-@synthesize leftController = _leftController;
+@synthesize leftController = mLeftView;
 @synthesize lightView = _lightView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -70,22 +70,19 @@
     //    [self.window addSubview:_lightView];
     
     
-    _mainController = [[MainView alloc] init];
+    mMainView = [[MainView alloc] init];
     
-    _navController = [[MyNavigationView alloc] initWithRootViewController:_mainController];
+    _navController = [[MyNavigationView alloc] initWithRootViewController:mMainView];
     
     _menuController = [[DDMenuController alloc] initWithRootViewController:_navController];
     
     
-    _leftController = [[LeftView alloc] init];
-    _leftController.navController = _navController;
-    _leftController.mainViewController = _mainController;
+    mLeftView = [[LeftView alloc] init];
+    mLeftView.navController = _navController;
+    mLeftView.mainViewController = mMainView;
     
-    _menuController.leftViewController = _leftController;
-    
-    //    RightController *rightController = [[RightController alloc] init];
-    //    rootController.rightViewController = rightController;
-    
+    _menuController.leftViewController = mLeftView;
+        
     self.window.rootViewController = _menuController;
     
     self.window.backgroundColor = [UIColor whiteColor];

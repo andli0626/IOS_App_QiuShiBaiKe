@@ -20,15 +20,15 @@
 {
     GADBannerView *bannerView_;//实例变量 bannerView_是一个view
     
-    MainView *_mainController;
+    MainView *mMainView;
     MyNavigationView *_navController;
-    LeftView *_leftController;
+    LeftView *mLeftView;
     
     UIView *_lightView;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) DDMenuController *menuController;
+@property (strong, nonatomic) DDMenuController *mDDMenuView;
 @property (strong, nonatomic) MainView *mainController;
 @property (strong, nonatomic) MyNavigationView *navController;
 @property (strong, nonatomic) LeftView *leftController;

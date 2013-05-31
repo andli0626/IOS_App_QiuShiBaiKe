@@ -429,8 +429,8 @@
 		13C8447515E489F5000B8A44 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		13C8447615E489F5000B8A44 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		13C8447715E489F5000B8A44 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
-		13C8447815E489F5000B8A44 /* QiuShi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiuShi.h; sourceTree = "<group>"; };
-		13C8447915E489F5000B8A44 /* QiuShi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiuShi.m; sourceTree = "<group>"; };
+		13C8447815E489F5000B8A44 /* QiuShi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QiuShi.h; path = qiushi/View/QiuShi.h; sourceTree = "<group>"; };
+		13C8447915E489F5000B8A44 /* QiuShi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QiuShi.m; path = qiushi/View/QiuShi.m; sourceTree = "<group>"; };
 		13C8447A15E489F5000B8A44 /* RightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightView.h; sourceTree = "<group>"; };
 		13C8447B15E489F5000B8A44 /* RightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightView.m; sourceTree = "<group>"; };
 		13C8447C15E489F5000B8A44 /* SetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetViewController.h; sourceTree = "<group>"; };
@@ -741,7 +741,8 @@
 				1313DAA115EF3281002ACBB2 /* CustomNavigationBar.h */,
 				1313DAA215EF3281002ACBB2 /* CustomNavigationBar.m */,
 			);
-			path = CustomView;
+			name = CustomView;
+			path = qiushi/View/CustomView;
 			sourceTree = "<group>";
 		};
 		136A2E5F15F5ED8700E402D8 /* MBProgressHUD */ = {
@@ -939,29 +940,6 @@
 				13C8441F15E489E8000B8A44 /* story-thought@2x.png */,
 			);
 			path = QuadCurveMenu;
-			sourceTree = "<group>";
-		};
-		13C8446315E489F5000B8A44 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				F2F8AD751758B38D0010701E /* FavouriteView */,
-				F2F8AD741758B37B0010701E /* PurchaseInView */,
-				F2F8AD731758B3040010701E /* CommentsView */,
-				F28328091758B06B004FD44B /* AboutView */,
-				F2DBA4AF1721861300740C66 /* ContentView */,
-				F2DBA4AE172185AF00740C66 /* MainView */,
-				F27C3AB0171AF65000411CF2 /* SettingView */,
-				13D4BBD215F9BC9000AD8B8B /* PhotoView */,
-				1313DAA015EF3281002ACBB2 /* CustomView */,
-				13C8435B15E47EEC000B8A44 /* ViewController.h */,
-				13C8435C15E47EEC000B8A44 /* ViewController.m */,
-				13C8435E15E47EEC000B8A44 /* ViewController_iPhone.xib */,
-				13C8436115E47EEC000B8A44 /* ViewController_iPad.xib */,
-				13C8447815E489F5000B8A44 /* QiuShi.h */,
-				13C8447915E489F5000B8A44 /* QiuShi.m */,
-			);
-			name = View;
-			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		13C845E315E48AFE000B8A44 /* Frame */ = {
@@ -1505,7 +1483,7 @@
 				13D4BBDC15F9BC9000AD8B8B /* zoom_out.png */,
 			);
 			name = PhotoView;
-			path = PhotoViewer;
+			path = qiushi/View/PhotoViewer;
 			sourceTree = "<group>";
 		};
 		13D4BBFA15FD87EC00AD8B8B /* iToast */ = {
@@ -1550,7 +1528,21 @@
 		F26F635F171B8C6E008C9ECA /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				13C8446315E489F5000B8A44 /* View */,
+				F2F8AD751758B38D0010701E /* FavouriteView */,
+				F2F8AD741758B37B0010701E /* PurchaseInView */,
+				F2F8AD731758B3040010701E /* CommentsView */,
+				F28328091758B06B004FD44B /* AboutView */,
+				F2DBA4AF1721861300740C66 /* ContentView */,
+				F2DBA4AE172185AF00740C66 /* MainView */,
+				F27C3AB0171AF65000411CF2 /* SettingView */,
+				13D4BBD215F9BC9000AD8B8B /* PhotoView */,
+				1313DAA015EF3281002ACBB2 /* CustomView */,
+				13C8435B15E47EEC000B8A44 /* ViewController.h */,
+				13C8435C15E47EEC000B8A44 /* ViewController.m */,
+				13C8435E15E47EEC000B8A44 /* ViewController_iPhone.xib */,
+				13C8436115E47EEC000B8A44 /* ViewController_iPad.xib */,
+				13C8447815E489F5000B8A44 /* QiuShi.h */,
+				13C8447915E489F5000B8A44 /* QiuShi.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -1563,6 +1555,7 @@
 				13C8447E15E489F5000B8A44 /* SetViewController.xib */,
 			);
 			name = SettingView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F28328091758B06B004FD44B /* AboutView */ = {
@@ -1573,6 +1566,7 @@
 				13C8446615E489F5000B8A44 /* AboutView.xib */,
 			);
 			name = AboutView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F2DBA4AE172185AF00740C66 /* MainView */ = {
@@ -1590,6 +1584,7 @@
 				13C8447715E489F5000B8A44 /* MainView.xib */,
 			);
 			name = MainView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F2DBA4AF1721861300740C66 /* ContentView */ = {
@@ -1602,6 +1597,7 @@
 				13C8447215E489F5000B8A44 /* ContentView.xib */,
 			);
 			name = ContentView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F2F8AD731758B3040010701E /* CommentsView */ = {
@@ -1616,6 +1612,7 @@
 				13C8446D15E489F5000B8A44 /* CommentsView.xib */,
 			);
 			name = CommentsView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F2F8AD741758B37B0010701E /* PurchaseInView */ = {
@@ -1626,6 +1623,7 @@
 				1313DABB15F089DF002ACBB2 /* PurchaseInView.xib */,
 			);
 			name = PurchaseInView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 		F2F8AD751758B38D0010701E /* FavouriteView */ = {
@@ -1636,6 +1634,7 @@
 				C9BDA76815F64D0700645ED0 /* FavouriteView.xib */,
 			);
 			name = FavouriteView;
+			path = qiushi/View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1969,7 +1968,7 @@
 				13C8435F15E47EEC000B8A44 /* en */,
 			);
 			name = ViewController_iPhone.xib;
-			path = ..;
+			path = qiushi;
 			sourceTree = "<group>";
 		};
 		13C8436115E47EEC000B8A44 /* ViewController_iPad.xib */ = {
@@ -1978,7 +1977,7 @@
 				13C8436215E47EEC000B8A44 /* en */,
 			);
 			name = ViewController_iPad.xib;
-			path = ..;
+			path = qiushi;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

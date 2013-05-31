@@ -93,7 +93,7 @@
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // lets just push another feed view 
-    UINavigationController *menuController = (UINavigationController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    UINavigationController *menuController = (UINavigationController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mDDMenuView;
     MainView *controller = [[MainView alloc] init];
     [menuController pushViewController:controller animated:YES];
     

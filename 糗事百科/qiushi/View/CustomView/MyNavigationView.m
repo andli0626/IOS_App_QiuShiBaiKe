@@ -20,46 +20,46 @@
 
 -(UIBarButtonItem*) createBackButton
 
-{ 
+{
     UIImage* image= [UIImage imageNamed:@"navi_back_btn"];
     UIImage* imagef = [UIImage imageNamed:@"navi_back_f_btn"];
-    CGRect backframe= CGRectMake(0, 0, image.size.width, image.size.height); 
+    CGRect backframe= CGRectMake(0, 0, image.size.width, image.size.height);
     UIButton* backButton= [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = backframe;
     [backButton setBackgroundImage:image forState:UIControlStateNormal];
     [backButton setBackgroundImage:imagef forState:UIControlStateHighlighted];
-//    [backButton setTitle:@"返回" forState:UIControlStateNormal]; 
-//    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; 
-//    backButton.titleLabel.font=[UIFont systemFontOfSize:12]; 
+    //    [backButton setTitle:@"返回" forState:UIControlStateNormal];
+    //    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    //    backButton.titleLabel.font=[UIFont systemFontOfSize:12];
     [backButton addTarget:self action:@selector(popself) forControlEvents:UIControlEventTouchUpInside];
     //定制自己的风格的  UIBarButtonItem
-    UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:backButton]; 
+    UIBarButtonItem* someBarButtonItem= [[UIBarButtonItem alloc] initWithCustomView:backButton];
     return someBarButtonItem;
     
-//    return [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(popself)];
+    //    return [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleBordered target:self action:@selector(popself)];
     
-} 
+}
 
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 
-{ 
+{
     
-    [super pushViewController:viewController animated:animated]; 
+    [super pushViewController:viewController animated:animated];
     
-    if (viewController.navigationItem.leftBarButtonItem== nil && [self.viewControllers count] > 1) 
-    { 
+    if (viewController.navigationItem.leftBarButtonItem== nil && [self.viewControllers count] > 1)
+    {
         
-        if ([viewController.navigationItem hidesBackButton]==NO) 
+        if ([viewController.navigationItem hidesBackButton]==NO)
         {
             viewController.navigationItem.leftBarButtonItem =[self createBackButton];
         }
-        else 
+        else
         {
             viewController.navigationItem.leftBarButtonItem =nil;
         }
         
         
-    } 
+    }
     
 } 
 

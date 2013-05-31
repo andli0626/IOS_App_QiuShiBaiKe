@@ -162,7 +162,7 @@ UITableViewDelegate
 - (void)viewDidAppear:(BOOL)animated
 {
     //解决本view与root 共同的手势 冲突
-    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mDDMenuView;
     [_menuController.tap setEnabled:NO];
     [_menuController.pan setEnabled:NO];
 }
@@ -498,7 +498,7 @@ UITableViewDelegate
 
 - (void)showLeft:(id)seder
 {
-    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mDDMenuView;
     [menuController showLeftController:YES];
     
     
