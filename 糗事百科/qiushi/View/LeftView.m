@@ -54,7 +54,7 @@
     [super viewDidLoad];
     
     
-    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
+    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mMenuView;
     
     _items = [[NSMutableArray alloc]initWithObjects:@"随便逛逛",@"新鲜出炉",@"有图有真相",@"个人收藏",@"设置",@"关于", nil];
     

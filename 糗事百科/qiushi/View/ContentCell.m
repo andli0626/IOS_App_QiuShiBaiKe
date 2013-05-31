@@ -206,7 +206,7 @@
     _photoview.imgUrl = self.imgMidUrl;
     DLog(@"self.imgMidUrl:%@",self.imgMidUrl);
     _photoview.placeholderImage = [[self.imgPhoto imageView] image];
-    [[delegate navController] presentModalViewController:_photoview animated:YES];
+    [[delegate mNavigationView] presentModalViewController:_photoview animated:YES];
 
 
     

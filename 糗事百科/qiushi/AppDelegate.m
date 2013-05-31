@@ -18,10 +18,10 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
-@synthesize menuController = _menuController;
-@synthesize mainController = _mainController;
-@synthesize navController = _navController;
-@synthesize leftController = _leftController;
+@synthesize mMenuView = _menuController;
+@synthesize mMainView = _mainController;
+@synthesize mNavigationView = _navController;
+@synthesize mLeftView = _leftController;
 @synthesize lightView = _lightView;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -91,7 +91,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     
-    [self.navController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navi_background.png"]];
+    [self.mNavigationView.navigationBar setBackgroundImage:[UIImage imageNamed:@"navi_background.png"]];
     
     //判断设备的版本
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 50000

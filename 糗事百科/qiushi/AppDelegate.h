@@ -28,10 +28,10 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) DDMenuController *menuController;
-@property (strong, nonatomic) MainView *mainController;
-@property (strong, nonatomic) MyNavigationView *navController;
-@property (strong, nonatomic) LeftView *leftController;
+@property (strong, nonatomic) DDMenuController *mMenuView;
+@property (strong, nonatomic) MainView *mMainView;
+@property (strong, nonatomic) MyNavigationView *mNavigationView;
+@property (strong, nonatomic) LeftView *mLeftView;
 @property (strong, nonatomic) UIView *lightView;
 
 
