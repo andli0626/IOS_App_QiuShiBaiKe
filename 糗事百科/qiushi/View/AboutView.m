@@ -6,17 +6,17 @@
 //
 //
 
-#import "AboutViewController.h"
+#import "AboutView.h"
 
 #import "DDMenuController.h"
-@interface AboutViewController ()
+@interface AboutView ()
 {
     
 }
 
 @end
 
-@implementation AboutViewController
+@implementation AboutView
 
 @synthesize name = _name;
 @synthesize mTable = _mTable;

@@ -6,24 +6,24 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "LeftController.h"
+#import "LeftView.h"
 #import "MainView.h"
 #import "DDMenuController.h"
 #import "AppDelegate.h"
-#import "AboutViewController.h"
+#import "AboutView.h"
 #import "SetViewController.h"
-#import "PurchaseInViewController.h"
+#import "PurchaseInView.h"
 #import "MyNavigationController.h"
-#import "FavouriteViewController.h"
+#import "FavouriteView.h"
 
-@interface LeftController ()
+@interface LeftView ()
 {
     UISlider *_mSlider;//伪 调节屏幕亮度
     int _mainType;
 }
 @property (nonatomic, assign) int mainType;
 @end
-@implementation LeftController
+@implementation LeftView
 
 @synthesize tableView=_tableView;
 @synthesize items = _items;
@@ -227,7 +227,7 @@
     }else if(section == 2){
         return @"个人仅作学习之用";
     }else{
-        return @"邮箱：xyxdasnjss@163.com";
+        return @"邮箱：ww1095@163.com";
     }
     
     
@@ -266,7 +266,7 @@
         [self.mainViewController refreshDate];
         [_menuController showRootController:YES];
     }else if (indexPath.row == 3){
-        FavouriteViewController *favourite = [[FavouriteViewController alloc]initWithNibName:@"FavouriteViewController" bundle:nil];
+        FavouriteView *favourite = [[FavouriteView alloc]initWithNibName:@"FavouriteViewController" bundle:nil];
         
         [self.navController pushViewController:favourite animated:YES];
         [_menuController showRootController:YES];
@@ -277,7 +277,7 @@
         [self.navController pushViewController:set animated:YES];
         [_menuController showRootController:YES];
     }else if (indexPath.row == 5){
-        AboutViewController *about = [[AboutViewController alloc]initWithNibName:@"AboutViewController" bundle:nil];
+        AboutView *about = [[AboutView alloc]initWithNibName:@"AboutViewController" bundle:nil];
         [self.navController pushViewController:about animated:YES];
         
         [_menuController showRootController:YES];

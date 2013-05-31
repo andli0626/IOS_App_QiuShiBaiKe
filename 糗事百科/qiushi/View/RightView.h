@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RightController : UIViewController
+@interface RightView : UIViewController
 
 @property(nonatomic,strong) UITableView *tableView;
 

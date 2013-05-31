@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 XYXD. All rights reserved.
 //
 
-#import "PurchaseInViewController.h"
+#import "PurchaseInView.h"
 
 #define ProductID_IAP0p99 @"com.xyxd.qiushi.ad"//$0.99
 #define ProductID_IAP1p99 @"com.buytest.two" //$1.99
@@ -14,11 +14,11 @@
 #define ProductID_IAP9p99 @"com.buytest.four" //$19.99
 #define ProductID_IAP24p99 @"com.buytest.five" //$24.99
 
-@interface PurchaseInViewController ()
+@interface PurchaseInView ()
 
 @end
 
-@implementation PurchaseInViewController
+@implementation PurchaseInView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

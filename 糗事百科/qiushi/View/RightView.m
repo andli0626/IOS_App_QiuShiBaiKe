@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "RightController.h"
+#import "RightView.h"
 #import "MainView.h"
 #import "AppDelegate.h"
 
-@implementation RightController
+@implementation RightView
 
 @synthesize tableView=_tableView;
 

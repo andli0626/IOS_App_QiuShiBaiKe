@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AboutViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface AboutView : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     UIImageView *_iconImageView;
     UILabel *_name;

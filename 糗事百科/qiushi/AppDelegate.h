@@ -11,7 +11,7 @@
 
 @class MainView;
 @class DDMenuController;
-@class LeftController;
+@class LeftView;
 @class MyNavigationController;
 
 //@class ViewController;
@@ -22,7 +22,7 @@
     
     MainView *_mainController;
     MyNavigationController *_navController;
-    LeftController *_leftController;
+    LeftView *_leftController;
     
     UIView *_lightView;
 }
@@ -34,7 +34,7 @@
 
 @property (strong, nonatomic) MainView *mainController;
 @property (strong, nonatomic) MyNavigationController *navController;
-@property (strong, nonatomic) LeftController *leftController;
+@property (strong, nonatomic) LeftView *leftController;
 @property (strong, nonatomic) UIView *lightView;
 
 

@@ -13,7 +13,7 @@
 
 
 
-@interface LeftController : UIViewController<QuadCurveMenuDelegate>
+@interface LeftView : UIViewController<QuadCurveMenuDelegate>
 {
     NSMutableArray *_items;
     

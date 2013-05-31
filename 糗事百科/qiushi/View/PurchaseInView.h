@@ -17,7 +17,7 @@ enum{
     IAP24p99,
 }buyCoinsTag;
 
-@interface PurchaseInViewController : ViewController<SKProductsRequestDelegate,SKPaymentTransactionObserver>
+@interface PurchaseInView : ViewController<SKProductsRequestDelegate,SKPaymentTransactionObserver>
 {
     int buyType;
 }

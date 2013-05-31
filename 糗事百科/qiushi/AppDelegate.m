@@ -11,7 +11,7 @@
 #import "MainView.h"
 #import "DDMenuController.h"
 
-#import "LeftController.h"
+#import "LeftView.h"
 #import "CustomNavigationBar.h"
 #import "MyNavigationController.h"
 
@@ -87,7 +87,7 @@
     _menuController = [[DDMenuController alloc] initWithRootViewController:_navController];
     
     
-    _leftController = [[LeftController alloc] init];
+    _leftController = [[LeftView alloc] init];
     _leftController.navController = _navController;
     _leftController.mainViewController = _mainController;
     

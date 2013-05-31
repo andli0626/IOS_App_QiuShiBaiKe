@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 XYXD. All rights reserved.
 //
 
-#import "FavouriteViewController.h"
+#import "FavouriteView.h"
 
 #import "PullingRefreshTableView.h"
 #import "CommentsView.h"
@@ -20,7 +20,7 @@
 #import "AppDelegate.h"
 #import "DDMenuController.h"
 #import "iToast.h"
-@interface FavouriteViewController () <
+@interface FavouriteView () <
 PullingRefreshTableViewDelegate,
 UITableViewDataSource,
 UITableViewDelegate
@@ -32,7 +32,7 @@ UITableViewDelegate
 @property (assign,nonatomic) NSInteger page;
 @end
 
-@implementation FavouriteViewController
+@implementation FavouriteView
 
 @synthesize tableView = _tableView;
 @synthesize list = _list;

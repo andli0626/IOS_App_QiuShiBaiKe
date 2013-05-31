@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FavouriteViewController : UIViewController
+@interface FavouriteView : UIViewController
 {
     GADBannerView *bannerView_;
     
