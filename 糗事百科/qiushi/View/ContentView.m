@@ -514,7 +514,7 @@ UITableViewDelegate
     comments.qs = [self.list objectAtIndex:indexPath.row];
     
     
-    [[delegate mNavigationView] pushViewController:comments animated:YES];
+    [[delegate navController] pushViewController:comments animated:YES];
     
 }
 

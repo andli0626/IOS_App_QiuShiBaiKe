@@ -162,7 +162,7 @@ UITableViewDelegate
 - (void)viewDidAppear:(BOOL)animated
 {
     //解决本view与root 共同的手势 冲突
-    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mMenuView;
+    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     [_menuController.tap setEnabled:NO];
     [_menuController.pan setEnabled:NO];
 }
@@ -419,7 +419,7 @@ UITableViewDelegate
     comments.qs = [self.list objectAtIndex:indexPath.row];
     
     
-    [[delegate mNavigationView] pushViewController:comments animated:YES];
+    [[delegate navController] pushViewController:comments animated:YES];
     
 }
 
@@ -498,7 +498,7 @@ UITableViewDelegate
 
 - (void)showLeft:(id)seder
 {
-    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mMenuView;
+    DDMenuController *menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     [menuController showLeftController:YES];
     
     

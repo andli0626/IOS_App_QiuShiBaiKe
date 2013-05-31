@@ -241,7 +241,7 @@ UITableViewDelegate
 - (void)viewDidAppear:(BOOL)animated
 {
     //解决本view与root 共同的手势 冲突
-    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).mMenuView;
+    _menuController = (DDMenuController*)((AppDelegate*)[[UIApplication sharedApplication] delegate]).menuController;
     [_menuController.tap setEnabled:NO];
     [_menuController.pan setEnabled:NO];
 }

@@ -405,7 +405,7 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 {
     
     AppDelegate *delegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [[delegate mNavigationView] dismissModalViewControllerAnimated:YES];
+    [[delegate navController] dismissModalViewControllerAnimated:YES];
 }
 
 
