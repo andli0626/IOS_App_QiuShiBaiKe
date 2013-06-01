@@ -137,6 +137,7 @@
     //添加内容的TableView
     self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentView" bundle:nil];
     [m_contentView.view setFrame:CGRectMake(0, 0, kDeviceWidth, self.view.frame.size.height)];
+    //加载数据  typeQiuShi=1001 timeType=1
     [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
     [self.view addSubview:m_contentView.view];
         
@@ -144,11 +145,7 @@
 
 - (void)viewDidUnload
 {
-    DLog(@"viewDidUnload");
-    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
