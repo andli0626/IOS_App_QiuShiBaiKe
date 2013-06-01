@@ -28,8 +28,8 @@
 
 @interface MainView ()
 {
-    UIButton *_segmentButton;//
-    UIImageView *_arrowImage;
+    UIButton *topButton;//顶部按钮
+    UIImageView *topImage;//顶部按钮中的图片
 }
 
 @end
@@ -59,11 +59,12 @@
 {
     [super viewDidLoad];
     
-    
+    //微软雅黑 20号
     UIFont *font = [UIFont fontWithName:MENUFONT_FAMILY size:MENUFONT_SIZE];
+    
+    //初始化自定义菜单
     [DIYMenu setDelegate:self];
     
-    // Add menu items
     [DIYMenu addMenuItem:@"随便逛逛"
                 withIcon:[UIImage imageNamed:@"portfolioIcon.png"]
                withColor:[UIColor colorWithRed:0.18f green:0.76f blue:0.93f alpha:1.0f]
@@ -100,22 +101,24 @@
     
     
     
-    _segmentButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_segmentButton setFrame:CGRectMake(0, 0, 200, 35)];
-    [_segmentButton setTag:kTagMenu];
-    [_segmentButton setTintColor:[UIColor whiteColor]];
-    _segmentButton.titleLabel.font = [UIFont boldSystemFontOfSize:20];
-    [_segmentButton setTitle:@"随便逛逛" forState:UIControlStateNormal];
+    topButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [topButton setFrame:CGRectMake(0, 0, 200, 35)];
+    [topButton setTag:kTagMenu];
+    [topButton setTintColor:[UIColor whiteColor]];
+    topButton.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    [topButton setTitle:@"随便逛逛" forState:UIControlStateNormal];
     
-    [_segmentButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [topButton addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    _arrowImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_att_input_pressed.png"]];
-    [_arrowImage setCenter:CGPointMake(155, 16)];
-    [_segmentButton addSubview:_arrowImage];
+    topImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ic_att_input_pressed.png"]];
+    [topImage setCenter:CGPointMake(155, 16)];
+    [topButton addSubview:topImage];
     
+    
+    //如果是首页,就设置导航的titleView为topButton,其他页面就是空
     if (_typeQiuShi == QiuShiTypeTop) {
-        self.navigationItem.titleView = _segmentButton;
+        self.navigationItem.titleView = topButton;
     }else
         self.navigationItem.titleView = nil;
     
@@ -124,15 +127,11 @@
     //设置背景颜色
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"main_background.png"]]];
     
-    
-    
+    //初始化数据库
     [SqliteUtil initDb];
-    
-    
     
     //每隔一段时间，提示用户去评分
     [self pingFen];
-    
     
     //添加内容的TableView
     self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentView" bundle:nil];
@@ -175,15 +174,16 @@
 
 #pragma mark - action
 
-
+#pragma mark 按钮点击事件
 - (void)btnClick:(id)sender
 {
     UIButton *btn = (UIButton*)sender;
     switch ([btn tag])
     {
+        //顶部按钮点击
         case kTagMenu:
         {
-            [DIYMenu show];
+            [DIYMenu show];//显示自定义菜单
         }break;
             
             
@@ -243,7 +243,7 @@
 {
     
     if (_typeQiuShi == QiuShiTypeTop) {
-        self.navigationItem.titleView = _segmentButton;
+        self.navigationItem.titleView = topButton;
     }else
         self.navigationItem.titleView = nil;
     //刷新 数据
@@ -290,7 +290,7 @@
         
     }
     
-    [_segmentButton setTitle:action forState:UIControlStateNormal];
+    [topButton setTitle:action forState:UIControlStateNormal];
     [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
 }
 
