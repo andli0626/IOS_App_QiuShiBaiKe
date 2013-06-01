@@ -166,7 +166,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
         self.reachabilityRef = nil;
     }
 #ifdef DEBUG
-    NSLog(@"Reachability: dealloc");
+//    NSLog(@"Reachability: dealloc");
 #endif
     
 #if !(__has_feature(objc_arc))
@@ -196,7 +196,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     if (!SCNetworkReachabilitySetCallback(self.reachabilityRef, TMReachabilityCallback, &context)) 
     {
 #ifdef DEBUG
-        NSLog(@"SCNetworkReachabilitySetCallback() failed: %s", SCErrorString(SCError()));
+//        NSLog(@"SCNetworkReachabilitySetCallback() failed: %s", SCErrorString(SCError()));
 #endif
         return NO;
     }
@@ -431,7 +431,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 -(void)reachabilityChanged:(SCNetworkReachabilityFlags)flags
 {
 #ifdef DEBUG
-    NSLog(@"Reachability: %@", reachabilityFlags(flags));
+//    NSLog(@"Reachability: %@", reachabilityFlags(flags));
 #endif
     
     if([self isReachableWithFlags:flags])
@@ -439,7 +439,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
         if(self.reachableBlock)
         {
 #ifdef DEBUG
-            NSLog(@"Reachability: blocks are not called on the main thread.\n Use dispatch_async(dispatch_get_main_queue(), ^{}); to update your UI!");
+//            NSLog(@"Reachability: blocks are not called on the main thread.\n Use dispatch_async(dispatch_get_main_queue(), ^{}); to update your UI!");
 #endif
             self.reachableBlock(self);
         }
@@ -449,7 +449,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
         if(self.unreachableBlock)
         {
 #ifdef DEBUG
-            NSLog(@"Reachability: blocks are not called on the main thread.\n Use dispatch_async(dispatch_get_main_queue(), ^{}); to update your UI!");
+//            NSLog(@"Reachability: blocks are not called on the main thread.\n Use dispatch_async(dispatch_get_main_queue(), ^{}); to update your UI!");
 #endif
             self.unreachableBlock(self);
         }

@@ -81,10 +81,8 @@
 	[_responseData appendData:data];
     
     self.downloadedByteCount += data.length;
-    DLog(@"已经下载了：%.2f%",((CGFloat)self.downloadedByteCount/(CGFloat)self.expectedByteCount));
-    //Update progress bar in front view
-//    [self performSelectorOnMainThread:@selector(updateProgressBar) withObject:nil waitUntilDone:YES];
-//    [self.delegate updateProgressBar:((CGFloat)self.downloadedByteCount/(CGFloat)self.expectedByteCount)];
+//    DLog(@"已经下载了：%.2f%",((CGFloat)self.downloadedByteCount/(CGFloat)self.expectedByteCount));
+
     
     if ([self.delegate respondsToSelector:@selector(imageLoadConnection:progressBar:)]) {
         [self.delegate imageLoadConnection:self progressBar:((CGFloat)self.downloadedByteCount/(CGFloat)self.expectedByteCount)];
@@ -99,8 +97,8 @@
 	self.response = response;
     self.expectedByteCount = [response expectedContentLength];
     self.downloadedByteCount = 0;
-    NSLog(@"总大小：%d",self.expectedByteCount);
-    DLog(@"开始获取==1");
+//    NSLog(@"总大小：%d",self.expectedByteCount);
+//    DLog(@"开始获取==1");
     if ([self.delegate respondsToSelector:@selector(imageLoadConnection:progressBar:)]) {
         [self.delegate imageLoadConnection:self progressBar:0];
     }
@@ -111,7 +109,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	if(connection != _connection) return;
 
-    DLog(@"获取完成==2");
+//    DLog(@"获取完成==2");
     self.expectedByteCount = 0;
     self.downloadedByteCount = 0;
     if ([self.delegate respondsToSelector:@selector(imageLoadConnection:progressBar:)]) {

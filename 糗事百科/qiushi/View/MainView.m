@@ -35,7 +35,7 @@
 @end
 
 @implementation MainView
-@synthesize m_contentView;
+@synthesize mContentView;
 @synthesize typeQiuShi = _typeQiuShi;
 @synthesize timeSegment = _timeSegment;
 @synthesize timeItem = _timeItem;
@@ -134,11 +134,11 @@
     [self pingFen];
     
     //添加内容的TableView
-    self.m_contentView = [[ContentView alloc]initWithNibName:@"ContentView" bundle:nil];
-    [m_contentView.view setFrame:CGRectMake(0, 0, kDeviceWidth, self.view.frame.size.height)];
+    self.mContentView = [[ContentView alloc]initWithNibName:@"ContentView" bundle:nil];
+    [mContentView.view setFrame:CGRectMake(0, 0, kDeviceWidth, self.view.frame.size.height)];
     //加载数据  typeQiuShi=1001 timeType=1
-    [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
-    [self.view addSubview:m_contentView.view];
+    [mContentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
+    [self.view addSubview:mContentView.view];
         
 }
 
@@ -154,20 +154,20 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    DLog("viewDidAppear");
+//    DLog("viewDidAppear");
     [super viewDidAppear:animated];
     [self becomeFirstResponder];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-    DLog("viewWillDisappear");
+//    DLog("viewWillDisappear");
     [self resignFirstResponder];
     [super viewWillDisappear:animated];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    DLog("viewWillAppear");
+//    DLog("viewWillAppear");
     [super viewWillAppear:animated];
 }
 
@@ -247,15 +247,16 @@
     }else
         self.navigationItem.titleView = nil;
     //刷新 数据
-    [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
+    [mContentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
 }
 
-
+/*****************DIYMenu相关方法*****************/
 #pragma mark - DIYMenuDelegate
 
+//菜单选中
 - (void)menuItemSelected:(NSString *)action
 {
-    NSLog(@"Delegate: selected: %@", action);
+    NSLog(@"您选中了:%@", action);
     if ([action isEqualToString:@"随便逛逛"]) {
         if (_timeType != QiuShiTimeRandom) {
             _timeType = QiuShiTimeRandom;
@@ -291,18 +292,19 @@
     }
     
     [topButton setTitle:action forState:UIControlStateNormal];
-    [m_contentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
+    [mContentView LoadPageOfQiushiType:_typeQiuShi Time:_timeType];
 }
 
 - (void)menuActivated
 {
-    NSLog(@"Delegate: menuActivated");
+    NSLog(@"DIYMenu激活");
 }
 
 - (void)menuCancelled
 {
-    NSLog(@"Delegate: menuCancelled");
+    NSLog(@"DIYMenu取消");
 }
+/*****************DIYMenu相关方法*****************/
 
 
 #ifdef _FOR_DEBUG_

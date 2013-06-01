@@ -46,7 +46,7 @@ static MyProgressHud *instance;
 {
 #ifndef __OPTIMIZE__
     
-    DLog(@"%@",title);
+//    DLog(@"%@",title);
 //    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
 //	
 //	// Configure for text only and offset down

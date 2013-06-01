@@ -182,7 +182,7 @@ static NSArray *dirPaths;
             {
                 
                 
-                NSLog(@"已查到结果");
+//                NSLog(@"已查到结果");
                 
                 
                 QiuShi *qs;
@@ -401,7 +401,7 @@ static NSArray *dirPaths;
             {
                 
                 
-                NSLog(@"已查到结果");
+//                NSLog(@"已查到结果");
                 
                 
                 QiuShi *qs;
@@ -426,7 +426,7 @@ static NSArray *dirPaths;
                 
                 while (sqlite3_step(statement) == SQLITE_ROW)
                 {
-                    NSLog(@"已查到结果");
+//                    NSLog(@"已查到结果");
                     qs = [[QiuShi alloc]init];
                     qs.qiushiID = [self processString:[[NSString alloc] initWithUTF8String: (char *)sqlite3_column_text(statement, 1)]];
                     
@@ -491,7 +491,7 @@ static NSArray *dirPaths;
             {
                 
                 
-                DLog(@"已查到结果");
+//                DLog(@"已查到结果");
                 
                 isExist = YES;
                                
@@ -530,7 +530,7 @@ static NSArray *dirPaths;
             {
                 
                 
-                DLog(@"已查到结果");
+//                DLog(@"已查到结果");
                 
                 id_i = [[[NSString alloc] initWithUTF8String:(char *)sqlite3_column_text(statement, 0)] intValue];
                 DLog(@"%d",id_i);

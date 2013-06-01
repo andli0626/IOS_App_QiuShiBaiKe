@@ -161,12 +161,12 @@
         contentSize = [txtContentLabel.text sizeWithFont:font
                            constrainedToSize:CGSizeMake(contentWidth, 220)
                                lineBreakMode:UILineBreakModeTailTruncation];
-        NSLog(@"kTypeMain高度=%f",contentSize.height);
+//        NSLog(@"kTypeMain高度=%f",contentSize.height);
     }else if (type == kTypeContent)
     {
         contentSize = [txtContentLabel.text sizeWithFont:font
                            constrainedToSize:CGSizeMake(contentWidth, (txtContentLabel.text.length * 14 * 0.05 + 1 ) * 14) lineBreakMode:UILineBreakModeTailTruncation];
-        NSLog(@"kTypeContent高度=%f",contentSize.height);
+//        NSLog(@"kTypeContent高度=%f",contentSize.height);
     }
     
     

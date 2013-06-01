@@ -1532,7 +1532,6 @@
 				F2F8AD741758B37B0010701E /* PurchaseInView */,
 				F2F8AD731758B3040010701E /* CommentsView */,
 				F28328091758B06B004FD44B /* AboutView */,
-				F2DBA4AF1721861300740C66 /* ContentView */,
 				F2DBA4AE172185AF00740C66 /* MainView */,
 				F27C3AB0171AF65000411CF2 /* SettingView */,
 				13D4BBD215F9BC9000AD8B8B /* PhotoView */,
@@ -1582,21 +1581,13 @@
 				13C8447515E489F5000B8A44 /* MainView.h */,
 				13C8447615E489F5000B8A44 /* MainView.m */,
 				13C8447715E489F5000B8A44 /* MainView.xib */,
-			);
-			name = MainView;
-			path = qiushi/View;
-			sourceTree = "<group>";
-		};
-		F2DBA4AF1721861300740C66 /* ContentView */ = {
-			isa = PBXGroup;
-			children = (
-				13C8446E15E489F5000B8A44 /* ContentCell.h */,
-				13C8446F15E489F5000B8A44 /* ContentCell.m */,
 				13C8447015E489F5000B8A44 /* ContentView.h */,
 				13C8447115E489F5000B8A44 /* ContentView.m */,
 				13C8447215E489F5000B8A44 /* ContentView.xib */,
+				13C8446E15E489F5000B8A44 /* ContentCell.h */,
+				13C8446F15E489F5000B8A44 /* ContentCell.m */,
 			);
-			name = ContentView;
+			name = MainView;
 			path = qiushi/View;
 			sourceTree = "<group>";
 		};

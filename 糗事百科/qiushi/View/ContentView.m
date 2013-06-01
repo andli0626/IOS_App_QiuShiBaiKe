@@ -27,16 +27,10 @@
 
 
 
-@interface ContentView () <
-PullingRefreshTableViewDelegate,
-ASIHTTPRequestDelegate,
-UITableViewDataSource,
-UITableViewDelegate
->
+@interface ContentView () <PullingRefreshTableViewDelegate,ASIHTTPRequestDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     ATMHud *hud;//提示网络连接 信息的：网络连接失败
     EGOImageButton *tem;//读取图片缓存的
-    
 }
 -(void) GetErr:(ASIHTTPRequest *)request;
 -(void) GetResult:(ASIHTTPRequest *)request;
@@ -45,6 +39,7 @@ UITableViewDelegate
 @property (nonatomic) BOOL refreshing;
 @property (assign,nonatomic) NSInteger page;
 @property (nonatomic, retain) ATMHud *hud;
+
 @end
 
 @implementation ContentView
@@ -83,7 +78,7 @@ UITableViewDelegate
     
     
     
-    //ad
+    //google广告
     bannerView_ = [[GADBannerView alloc]
                    initWithFrame:CGRectMake(0.0,
                                             self.view.frame.size.height - GAD_SIZE_320x50.height,
@@ -95,6 +90,7 @@ UITableViewDelegate
     [bannerView_ loadRequest:[GADRequest request]];
     
     
+    //初始化列表界面
     CGRect bounds = self.view.bounds;
     bounds.size.height -= (44);
     self.tableView = [[PullingRefreshTableView alloc] initWithFrame:bounds pullingDelegate:self];
@@ -112,6 +108,7 @@ UITableViewDelegate
     [self.view addSubview:hud.view];
     
     
+    //获取缓存
     _cacheArray = [SqliteUtil queryDb];
     if (_cacheArray != nil) {
         [self.list removeAllObjects];
@@ -128,7 +125,8 @@ UITableViewDelegate
         
         //打乱顺序
         self.list = [self randArray:self.list];
-        DLog(@"读取缓存%d条",self.list.count);
+        
+        //        DLog(@"读取缓存%d条",self.list.count);
         
         [self.tableView tableViewDidFinishedLoading];
         self.tableView.reachedTheEnd  = NO;
@@ -147,7 +145,7 @@ UITableViewDelegate
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -157,7 +155,6 @@ UITableViewDelegate
 
 - (void)dealloc
 {
-    //    NSLog(@"dealloc content");
     self.asiRequest.delegate = nil;
 }
 
@@ -206,8 +203,8 @@ UITableViewDelegate
     
     
     
-    NSLog(@"%@",url);
-    //    [ASIHTTPRequest setDefaultCache:[ASIDownloadCache sharedCache]];
+    //    NSLog(@"%@",url);
+    
     
     _asiRequest = [ASIHTTPRequest requestWithURL:url];
     [_asiRequest setDelegate:self];
@@ -236,28 +233,20 @@ UITableViewDelegate
     
     
     NSString *responseString = [request responseString];
+    
     NSLog(@"%@\n",responseString);
     NSError *error = [request error];
     NSLog(@"-------------------------------\n");
     NSLog(@"error:%@",error);
     
     
-    //    [hud setCaption:@"网络连接失败"];
-    //    [hud show];
-    //    [hud hideAfter:2.0];
-    
-    
     [[iToast makeText:@"网络连接失败"] show];
-    
-    //    [SVStatusHUD showWithImage:[UIImage imageNamed:@"wifi.png"] status:[NSString stringWithFormat:@"%@=====\n%@",responseString,error]];
     
 }
 
 -(void) GetResult:(ASIHTTPRequest *)request
 {
     
-    //    NSString *responseString = [request responseString];
-    //    NSLog(@"%@\n",responseString);
     NSError *error;
     if (![[GANTracker sharedTracker] trackEvent:@"Application iOS"
                                          action:@"refresh ok"
@@ -278,8 +267,6 @@ UITableViewDelegate
     }
     NSData *data =[request responseData];
     NSMutableDictionary *dictionary = [[CJSONDeserializer deserializer] deserializeAsDictionary:data error:nil];
-    
-    
     
     if ([dictionary objectForKey:@"items"]) {
         NSArray *array = [NSArray arrayWithArray:[dictionary objectForKey:@"items"]];
@@ -551,7 +538,7 @@ UITableViewDelegate
         height = size.height+220;
     }
     // 返回需要的高度
-    NSLog(@"Cell高度=%f",height);
+    //    NSLog(@"Cell高度=%f",height);
     return height;
 }
 
@@ -559,7 +546,7 @@ UITableViewDelegate
 //去掉 重复数据
 - (void)removeRepeatArray
 {
-    DLog(@"原来：%d",self.list.count);
+    //    DLog(@"原来：%d",self.list.count);
     NSMutableArray* filterResults = [[NSMutableArray alloc] init];
     BOOL copy;
     if (![self.list count] == 0) {
@@ -578,8 +565,8 @@ UITableViewDelegate
     }
     
     self.list = filterResults;
-    DLog(@"之后：%d",self.list.count);
-    //    self.list = [NSMutableArray arrayWithArray:[self.list sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)]];
+    //    DLog(@"之后：%d",self.list.count);
+    
     
     
     
@@ -609,7 +596,7 @@ UITableViewDelegate
     int index = ([btn tag] - 100) ;
     QiuShi *qs = [self.list objectAtIndex:index];
     
-    DLog(@"%@",qs.qiushiID);
+    //    DLog(@"%@",qs.qiushiID);
     [SqliteUtil updateDataIsFavourite:qs.qiushiID isFavourite:@"yes"];
     
     [[iToast makeText:@"已添加到收藏..."] show];
@@ -619,7 +606,7 @@ UITableViewDelegate
 - (void)getImageCache
 {
     
-    NSLog(@"图片数：%d",self.imageUrlArray.count);
+    //    NSLog(@"图片数：%d",self.imageUrlArray.count);
     tem = [[EGOImageButton alloc]initWithPlaceholderImage:[UIImage imageNamed:@"main_background.png"] delegate:self];
     for (NSString* strUrl in self.imageUrlArray)
     {
@@ -630,19 +617,19 @@ UITableViewDelegate
     }
     
     
-    NSLog(@"获取缓存完成");
+    //    NSLog(@"获取缓存完成");
 }
 
 - (void)imageButtonLoadedImage:(EGOImageButton*)imageButton
 {
     
-    NSLog(@"预下载图片成功");
+    //    NSLog(@"预下载图片成功");
 }
 
 - (void)imageButtonFailedToLoadImage:(EGOImageButton*)imageButton error:(NSError*)error;
 {
     [imageButton cancelImageLoad];
-    NSLog(@"预下载图片失败");
+    //    NSLog(@"预下载图片失败");
 }
 
 #ifdef _FOR_DEBUG_

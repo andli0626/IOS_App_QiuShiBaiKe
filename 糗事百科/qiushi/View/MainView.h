@@ -16,7 +16,7 @@
 
 @interface MainView : UIViewController<UIAlertViewDelegate,DIYMenuDelegate>
 {
-    ContentView *m_contentView;  //内容页面
+    ContentView *mContentView;  //内容页面
 
     int _typeQiuShi;
     int _timeType;
@@ -27,7 +27,7 @@
     SystemSoundID soundID;
 }
 
-@property (nonatomic,retain) ContentView *m_contentView;
+@property (nonatomic,retain) ContentView *mContentView;
 @property (nonatomic,assign) int typeQiuShi;
 
 

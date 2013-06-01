@@ -32,7 +32,7 @@ static int typeInternet = kTypeNO;
     reach.reachableBlock = ^(Reachability * reachability)
     {
         dispatch_async(dispatch_get_main_queue(), ^{
-            DLog( @"Block Says Reachable+++");
+//            DLog( @"Block Says Reachable+++");
             
             isNetWork = YES;
             
@@ -44,7 +44,7 @@ static int typeInternet = kTypeNO;
     {
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            DLog( @"Block Says Unreachable---");
+//            DLog( @"Block Says Unreachable---");
             isNetWork = NO;
             
             
